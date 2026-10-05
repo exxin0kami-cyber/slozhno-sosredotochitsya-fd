@@ -12,11 +12,13 @@
   --heading-text-color: #000028;
   --decorative-color: #ff0070;
   --text-block-color: #ff0070;
+  --button-hover-color: rgb(255 0 112 / 0.4);
+  --rec-display: block;
   --font-family: "IBM Plex Mono", monospace;
   --content-padding: 10px;
   --section-gap: 50px;
   --card-gap: 20px;
   --card-content-gap: 10px;
   --basic-font-size: 18px;
-  --line-height: 23.4px;
+  --line-height: 1.3;
 }
