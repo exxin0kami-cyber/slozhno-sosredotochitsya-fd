@@ -1,5 +1,335 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  margin: 0;
+  color: var(--main-text-color);
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-size: var(--basic-font-size);
+}
+
+.header {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  min-block-size: 668px;
+  block-size: 100vh;
+  padding: var(--content-padding);
+  background-image: var(--background-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+  font-family: var(--font-family);
+  font-size: var(--basic-font-size);
+  font-weight: 400;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 0px 13px 0px 13px;
+  border: 1px solid transparent;
+  color: var(--accent-color);
+  background-color: transparent;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 1px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.header__theme-menu-button_active {
+  border-color: var(--accent-color);
+  pointer-events: none;
+}
+
+.header__title {
+  align-self: center;
+  justify-self: start;
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.83;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.header__text {
+  align-self: center;
+  justify-self: end;
+  inline-size: min(100%, 355px);
+  font-weight: 700;
+}
+
+.header__rec {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 39px;
+  color: var(--accent-color);
+  font-size: var(--basic-font-size);
+  line-height: 25px;
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
+.header__rec::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: -19px;
+  inset-block-start: 8px;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  border-block-start: 1px solid var(--decorative-color);
+  border-inline-end: 1px solid var(--decorative-color);
+}
+
+.decorated-zone::after {
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+
+  border-block-end: 1px solid var(--decorative-color);
+  border-inline-start: 1px solid var(--decorative-color);
+}
+
+.title-decor {
+  color: var(--heading-text-color);
+  background-color: var(--text-block-color);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--section-gap);
+  padding: 40px var(--content-padding);
+}
+
+.content-section {
+  display: grid;
+  gap: 20px;
+}
+
+.section-title {
+  color: var(--accent-color);
+  font-size: var(--basic-font-size);
+  font-weight: 700;
+}
+
+.article-list {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.article-card {
+  display: grid;
+  gap: var(--card-content-gap);
+}
+
+.article-card__title {
+  font-size: var(--basic-font-size);
+  font-weight: 700;
+}
+
+.article-card__title_type_regular {
+  font-weight: 400;
+}
+
+.article-card__text {
+  color: var(--main-text-color);
+  font-size: var(--basic-font-size);
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.text-link:hover {
+  border-block-end: 1px solid currentColor;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 1px;
+}
+
+.gallery-section {
+  gap: 10px;
+}
+
+.gallery-section__title {
+  font-size: var(--basic-font-size);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.gallery__image {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.footer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-block-size: 668px;
+  block-size: 100vh;
+  padding: var(--content-padding);
+  background-color: var(--background-color);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer__title {
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.83;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-padding: 20px;
+  }
+
+  .header__title {
+    justify-self: start;
+    margin-inline-start: -20px;
+  }
+
+  .header__text {
+    inline-size: 364px;
+  }
+
+  .main {
+    gap: 80px;
+    padding-block: 60px;
+  }
+
+  .content-section:not(.gallery-section) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .content-section:not(.gallery-section) .article-list {
+    grid-column: 2;
+  }
+
+  .content-section.attention-reducers .article-list {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-section__title {
+    grid-column: 1 / -1;
+  }
+
+  .gallery {
+    grid-column: 1 / -1;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery__image {
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .gallery__image_type_sunset {
+    grid-column: span 2;
+  }
+
+  .gallery__image_type_ice-cream {
+    grid-column: 3;
+    grid-row: span 2;
+  }
+
+  .gallery__image_type_tape {
+    grid-row: span 2;
+  }
+
+  .gallery__image_type_books {
+    grid-column: 2;
+  }
+
+  .gallery__image_type_street {
+    grid-column: 2 / 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__title {
+    font-size: clamp(9.8125rem, 0.0268rem + 15.2902vw, 18.375rem);
+  }
+
+  .header__text {
+    inline-size: 491px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  .content-section.attention-reducers .article-list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / -1;
+  }
+
+  .concentration {
+    gap: 11px;
+  }
+
+  .article-card {
+    align-content: start;
+  }
+
+  .concentration-tips {
+    gap: 11px;
+  }
+
+  .footer__title {
+    font-size: clamp(9.8125rem, 0.0268rem + 15.2902vw, 18.375rem);
+  }
 }
